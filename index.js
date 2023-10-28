@@ -45,3 +45,49 @@ userInfoForm.addEventListener("submit", function (event) {
   // Start the quiz
   startQuiz();
 });
+
+// Function to load and display the next question
+function nextQuestion() {
+  if (currentQuestionIndex < questions.length) {
+    const question = questions[currentQuestionIndex];
+    questionText.textContent = question.question;
+    const choicesForm = document.getElementById("choices-form");
+    choicesForm.innerHTML = "";
+
+    question.choices.forEach((choice, index) => {
+      const choiceItem = document.createElement("label");
+      const radioInput = document.createElement("input");
+      radioInput.type = "radio";
+      radioInput.name = "answer";
+      radioInput.value = choice;
+      radioInput.id = "choice " + index;
+      const choiceText = document.createTextNode(choice);
+      choiceItem.appendChild(radioInput);
+      choiceItem.appendChild(choiceText);
+      choiceItem.addEventListener("click", function () {
+        validateAnswer();
+      });
+      choicesForm.appendChild(choiceItem);
+    });
+
+    // Timer function to be called.
+  } else {
+    finishQuiz();
+  }
+}
+
+// Function to check the selected answer
+function validateAnswer() {
+  const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+
+  if (!selectedAnswer) {
+    return; // No answer selected
+  }
+
+  if (selectedAnswer.value === questions[currentQuestionIndex].correctAnswer) {
+    score++;
+    scoreDisplay.textContent = score;
+  }
+  currentQuestionIndex++;
+  nextQuestion();
+}
