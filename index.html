@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" src="styles.css">
-    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Trivia Game</title>
 </head>
+
 <body>
-    
+    <div id="app">
+        <h1>Trivia Game</h1>
+        <form class="card-container" id="userInfo">
+            <label>Name:</label>
+            <input type="text" id="name" required><br>
+            <label>Phone Number:</label>
+            <input type="tel" id="phone" required><br>
+            <button type="submit">Start the Quiz</button>
+        </form>
+        <div id="view-container"></div>
+        <div id="question-container">
+            <p id="question-text"></p>
+            <form id="choices-form">
+                <!-- Radio buttons for choices will be added here -->
+            </form>
+        </div>
+        <div id="score-container">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+
+    </div>
+    <script type="module" src="index.js" defer></script>
 </body>
+
 </html>
