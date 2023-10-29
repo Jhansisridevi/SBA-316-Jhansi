@@ -1,44 +1,45 @@
 const questions = [
   {
-    question: "EETPNRSS is a synonym of snakes.",
+    question: "1) EETPNRSS is a synonym of snakes.",
     choices: ["SERPENTS", "PRESENTS", "REPENTSS", "PERTNESS"],
     correctAnswer: "SERPENTS",
   },
   {
-    question: "AGRTMISNE the piano is a lifelong task.",
+    question: "2) AGRTMISNE the piano is a lifelong task.",
     choices: ["GRAMIENTS", "MASTERING", "TRAGMINES", "STREAMING"],
     correctAnswer: "MASTERING",
   },
   {
-    question: "Mirages are a kind of ACTLPOI illusion.",
+    question: "3) Mirages are a kind of ACTLPOI illusion.",
     choices: ["TOPICAL", "OPTICAL", "CAPITOL", "LOPCAIT"],
     correctAnswer: "OPTICAL",
   },
   {
-    question: "The rugby player was heavy and KITETCHS.",
+    question: "4) The rugby player was heavy and KITETCHS.",
     choices: ["THICKEST", "THICKSET", "THICKETS", "SHICKETT"],
     correctAnswer: "THICKSET",
   },
   {
-    question: "Jets can travel at PICEROSSUN speeds",
+    question: "5) Jets can travel at PICEROSSUN speeds",
     choices: ["SCOURPINES", "PERCUSSION", "CONIPURESS", "SUPERSONIC"],
     correctAnswer: "SUPERSONIC",
   },
   {
-    question: "The polar bear is the largest TROPERAD.",
+    question: "6) The polar bear is the largest TROPERAD.",
     choices: ["TEARDROP", "PARDOTER", "PREDATOR", "PARROTED"],
     correctAnswer: "PREDATOR",
   },
 ];
-const mainBody = document.querySelector("body");
 const app = document.getElementById("app");
 const questionContainer = document.getElementById("question-container");
 const questionText = document.getElementById("question-text");
+const questionInfo = document.getElementById("question-info");
 const choicesList = document.getElementById("choices");
 const scoreCard = document.getElementById("score-container");
 const scoreDisplay = document.getElementById("score");
 const viewDisplay = document.getElementById("view-container");
 const exitButton = document.getElementById("exit-button");
+const jsConfetti = new JSConfetti();
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -47,10 +48,11 @@ const userInfoForm = document.getElementById("userInfo");
 questionContainer.style.display = "none";
 scoreCard.style.display = "none";
 exitButton.style.display = "none";
+scoreDisplay.textContent = score + " / " + questions.length;
 
 exitButton.addEventListener("click", function buttonClick() {
   console.log("Button click");
-  alert(`Do you want to exit`);
+  alert(`Do you want to exit the game`);
   finishQuiz();
 });
 function startQuiz() {
@@ -60,32 +62,43 @@ function startQuiz() {
   exitButton.style.display = "block";
   nextQuestion(); // Next question
 }
-
 // Event listener for user info form submission
 userInfoForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const nameInput = document.getElementById("name");
-  const phoneInput = document.getElementById("phone");
+  const codeInput = document.getElementById("code");
   userName = nameInput.value;
-  const userPhone = phoneInput.value;
+  const userCode = codeInput.value;
   console.log(userName);
   viewDisplay.textContent = `Welcome, ${userName}!!`;
   viewDisplay.style.color = "white";
-  startQuiz();  // Start the quiz
+  //console.log(viewDisplay.firstChild.nodeName);
+  // viewDisplay.firstElementChild;
+  startQuiz(); // Start the quiz
 });
-// Function to load and display the next question
-function nextQuestion() {
+function nextQuestion() { // Function to load and display the next question
   if (currentQuestionIndex < questions.length) {
     const question = questions[currentQuestionIndex];
     questionText.textContent = question.question;
+    questionText.style.fontSize = "20px";
+    questionContainer.firstElementChild.textContent =
+      "The sentence below has a word with letters jumbled up." +
+      " Rearrange the letters in capitals and choose the correct option";
+    questionInfo.style.fontSize = "15px";
     const choicesForm = document.getElementById("choices-form");
     choicesForm.innerHTML = "";
 
     question.choices.forEach((choice, index) => {
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
+      choiceButton.classList.add("choice-button");
+      choiceButton.dataset.choiceIndex = index;
+
       choiceButton.addEventListener("click", function () {
-        validateAnswer(choice, question.correctAnswer);
+        const selectedChoiceIndex = parseInt(this.dataset.choiceIndex);
+        const selectedChoice = question.choices[selectedChoiceIndex];
+        validateAnswer(selectedChoice, question.correctAnswer);
+        highlightAnswer(question.correctAnswer, choicesForm);
       });
       choicesForm.appendChild(choiceButton);
     });
@@ -93,51 +106,40 @@ function nextQuestion() {
     finishQuiz();
   }
 }
-// Function to check the selected answer
-function validateAnswer(chosenAnswer, correctAnswer) {
+function validateAnswer(chosenAnswer, correctAnswer) { // Function to check the selected answer
   //   const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-
   if (!chosenAnswer) {
     return; // No answer selected
   }
-
   if (chosenAnswer === correctAnswer) {
     score++;
-    scoreDisplay.textContent = score;
+    scoreDisplay.textContent = score + " / " + questions.length;
   }
   currentQuestionIndex++;
-  nextQuestion();
+  //nextQuestion();
 }
-
+function highlightAnswer(correctAnswer, choicesForm) { // Function to highlight the correct answer
+  const choiceButtons = choicesForm.querySelectorAll(".choice-button");
+  choiceButtons.forEach((button) => {
+    if (button.textContent === correctAnswer) {
+      button.classList.add("correct-answer");
+    }
+  });
+  setTimeout(nextQuestion, 1500);
+}
 const choicesForm = document.getElementById("choices-form");
 choicesForm.addEventListener("submit", function (event) {
   event.preventDefault();
   validateAnswer();
 });
-
-function finishQuiz() {
+function finishQuiz() { // Function to display the results and score
   const finish = document.getElementById("finish-container");
   questionText.textContent = "Quiz Completed!";
   finish.textContent = `Thank you for participating, ${userName} !!`;
   choicesForm.innerHTML = "";
   viewDisplay.style.display = "none";
+  questionInfo.style.display = "none";
   exitButton.style.display = "none";
-  //viewDisplay.textContent=`Thank you ${userName}!`;
-  //mainBody.style.display="inline-flex";
+  jsConfetti.addConfetti();
 }
-
 nextQuestion();
-//   const choiceItem = document.createElement("label");
-//   const radioInput = document.createElement("input");
-//   radioInput.type = "radio";
-//   radioInput.name = "answer";
-//   radioInput.value = choice;
-//   radioInput.id = "choice " + index;
-//   const choiceText = document.createTextNode(choice);
-//   choiceItem.appendChild(radioInput);
-//   choiceItem.appendChild(choiceText);
-//   choiceItem.addEventListener("click", function () {
-//     validateAnswer();
-//   });
-//   choicesForm.appendChild(choiceItem);
-// });
