@@ -4,30 +4,33 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    background-image: url("Home Page.png" );
+    background-image: url("Home Page.png");
     background-size: cover
-    /* background:linear-gradient(#b2d1ff, #f5b7db);  */
+        /* background:linear-gradient(#b2d1ff, #f5b7db);  */
 }
-h1{
-    margin-top:8%;
+
+h1 {
+    margin-top: 8%;
     font-family: Agbalumo;
-    color:#000a0a;
-    font-size:40px;
+    color: #000a0a;
+    font-size: 40px;
 }
-#view-container{
+
+#view-container {
     font-family: Agbalumo;
-    color:#029da8;
-    font-size:30px;
+    color: #029da8;
+    font-size: 30px;
 }
+
 #app {
     text-align: center;
     background: #029da8;
-    width:90%;
-    max-width:600px;
+    width: 90%;
+    max-width: 600px;
     margin: 10px auto 0;
     box-shadow: 0 4px 6px rgba(19, 17, 17, 0.1);
     border-radius: 10px;
-    padding:30px;
+    padding: 30px;
 }
 
 #score-container {
@@ -36,37 +39,76 @@ h1{
 
 .card-container {
     border-radius: 5px;
-    max-width:900px;
-    margin:0 auto;
+    max-width: 900px;
+    margin: 0 auto;
     padding: 20px;
 }
-form{
-    display:flex;
+
+form {
+    display: flex;
     flex-direction: column;
 }
-p,label,#finish-container{
+
+p,
+label,
+#finish-container {
     font-family: Young Serif;
     color: #fff;
     margin-bottom: 5px;
 }
-input[type="text"], input[type="tel"]{
-    padding:10px;
-    border:1px solid #e0e0e0;
+
+input[type="text"],
+input[type="tel"] {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
     margin-bottom: 15px;
-    font-size:15px;
+    font-size: 15px;
 }
-#exit-button{
+
+#exit-button {
     justify-content: center;
     margin-left: 46%;
 }
-a{
-    color:black;
-    text-shadow: 2px 4px 6px rgb(207, 143, 24); 
+
+button {
+    background-color: #03585e;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-family: Young Serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 4px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
-.icon{
+
+button:hover {
+    background-color: #023336;
+}
+
+a {
+    color: black;
+    text-shadow: 2px 4px 6px rgb(207, 143, 24);
+}
+
+.icon {
     margin-top: 20px;
 }
+
+.correct-answer {
+    background-color: #06cc10;
+    /* Green background */
+    color: #fff;
+}
+
+#question-text {
+    margin-bottom: 12px;
+}
+
 /* 
 .mode-toggle {
     display: flex;
