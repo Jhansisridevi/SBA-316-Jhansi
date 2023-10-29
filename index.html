@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Agbalumo">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Young Serif">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Agbalumo"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Young Serif"
+    />
     <title>Trivia Game</title>
-</head>
+  </head>
 
-<body id="main-body">
-    <h1>Trivia Game</h1>
-    <div id="view-container"></div>
+  <body id="main-body">
+    <h1>Trivia Time</h1>
+    <div id="view-container"><p id="general-info"></p></div>
     <div id="app">
-        <form class="card-container" id="userInfo">
-            <label>Name:</label>
-            <input type="text" id="name" title="Please enter a name with 4-10 characters" placeholder="Name" required
-                pattern=".{4,12}"><br>
-            <label>Phone Number:</label>
-            <input type="tel" id="phone" title="Please enter a 10-digit phone number with no special characters."
-                placeholder="Phone Number" required pattern="^\d{10}$"><br>
-            <button type="submit">Start the Quiz</button>
-        </form>
-        <div id="question-container">
-            <p id="question-text"></p>
-            <form id="choices-form">
-            </form>
-        </div>
-        <div id="score-container">
-            <p>Score: <span id="score">0</span></p>
-        </div>
-        <div><button id="exit-button" onclick="setTimeout(buttonClick,1000);">Exit</button></div>
-        <div id="finish-container">
-            <img id="finish-gif" src="">
-        </div>
+      <form class="card-container" id="userInfo">
+        <label>Name:</label>
+        <input
+          type="text"
+          id="name"
+          title="Please enter a name with 4-10 characters"
+          placeholder="Name"
+          required
+          pattern=".{4,12}"
+        /><br />
+        <label>Phone Number:</label>
+        <input
+          type="tel"
+          id="phone"
+          title="Please enter a 10-digit phone number with no special characters."
+          placeholder="Phone Number"
+          required
+          pattern="^\d{10}$"
+        /><br />
+        <button type="submit">Start the Quiz</button>
+      </form>
+      <div id="question-container">
+        <p id="question-info"></p>
+        <p id="question-text"></p>
+        <form id="choices-form"></form>
+      </div>
+      <div id="score-container">
+        <p>Score: <span id="score">0</span></p>
+      </div>
+      <div><button id="exit-button">Exit</button></div>
+      <div id="finish-container"></div>
     </div>
+    <span class="icon">
+      <a href="www.facebook.com"><ion-icon name="logo-facebook"></ion-icon></a>
+      <a href="www.linkedin.com"><ion-icon name="logo-linkedin"></ion-icon></a>
+      <a href="www.twitter.com"><ion-icon name="logo-twitter"></ion-icon></a>
+      <a href="www.pinterest.com"
+        ><ion-icon name="logo-pinterest"></ion-icon
+      ></a>
+      <a href="www.instagram.com"
+        ><ion-icon name="logo-instagram"></ion-icon
+      ></a>
+    </span>
     <script type="module" src="index.js" defer></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-</body>
-
+  </body>
 </html>
 <!-- <div class="mode-toggle">
         <label for="mode-switch">Dark Mode</label>
