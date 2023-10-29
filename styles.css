@@ -1,28 +1,41 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Montserrat Alternates;
     display: flex;
     align-items: center;
-    justify-content: center;
     height: 100vh;
-    margin: 0;
     flex-direction: column;
-    background:linear-gradient(#b2d1ff, #f5b7db);;
+    background-image: url("Home Page.png" );
+    background-size: cover
+    /* background:linear-gradient(#b2d1ff, #f5b7db);  */
 }
-
+h1{
+    margin-top:8%;
+    font-family: Agbalumo;
+    color:#000a0a;
+    font-size:40px;
+}
+#view-container{
+    font-family: Agbalumo;
+    color:#029da8;
+    font-size:30px;
+}
 #app {
     text-align: center;
+    background: #029da8;
+    width:90%;
+    max-width:600px;
+    margin: 10px auto 0;
+    box-shadow: 0 4px 6px rgba(19, 17, 17, 0.1);
+    border-radius: 10px;
+    padding:30px;
 }
 
 #score-container {
-    font-weight: bold;
     margin-bottom: 20px;
 }
 
 .card-container {
-    background: linear-gradient(#558fe7, #acb1e0);
-    border: 1px solid #e0e0e0;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     max-width:900px;
     margin:0 auto;
     padding: 20px;
@@ -31,8 +44,9 @@ form{
     display:flex;
     flex-direction: column;
 }
-label{
-    font-weight: bold;
+p,label,#finish-container{
+    font-family: Young Serif;
+    color: #fff;
     margin-bottom: 5px;
 }
 input[type="text"], input[type="tel"]{
@@ -42,16 +56,29 @@ input[type="text"], input[type="tel"]{
     margin-bottom: 15px;
     font-size:15px;
 }
-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
+#exit-button{
+    justify-content: center;
+    margin-left: 46%;
+}
+a{
+    color:black;
+    text-shadow: 2px 4px 6px rgb(207, 143, 24); 
+}
+.icon{
+    margin-top: 20px;
+}
+/* 
+.mode-toggle {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.mode-toggle label {
+    margin-right: 10px;
 }
+
+.dark-mode {
+    background-color: #222;
+    color: #fff;
+} */
