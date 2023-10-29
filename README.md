@@ -5,8 +5,8 @@ It’s about finding words(Anagrams) which make sense in a sentence from a selec
 Anagrams are words which have had their letters scrambled and you have to find the original word.
 Here are some examples:
 
-OWLS is an anagram of SLOW
-RACE is an anagram of CARE
+* OWLS is an anagram of SLOW
+* RACE is an anagram of CARE
 
 Example:
 The sentence below has a word in which the letters are jumbled up. Rearrange the letters in capitals and write the correct version below it.
@@ -15,21 +15,21 @@ The girl sat on a ARCIH.
 
 Answer: the girl sat on a CHAIR.
 ## Features
-Multiple-choice questions on various topics.
-Score tracking.
-Immediate feedback on answer selection.
-Interactive and engaging gameplay
+* Multiple-choice questions on various topics.
+* Score tracking.
+* Immediate feedback on answer selection.
+* Interactive and engaging gameplay
 
 ## Installation
-Clone the repository or download the ZIP file.
-Extract the contents (if you downloaded the ZIP file).
-Open the index.html file in a web browser.
+* Clone the repository or download the ZIP file.
+* Extract the contents (if you downloaded the ZIP file).
+* Open the index.html file in a web browser.
 
 ## Usage
-Start the game by providing your name and 4 digit code and click the "Start Quiz" button.
-Answer the multiple-choice questions.
-Receive immediate feedback on your answers.
-See your final score at the end of the game.
+* Start the game by providing your name and 4 digit code and click the "Start Quiz" button.
+* Answer the multiple-choice questions.
+* Receive immediate feedback on your answers.
+* See your final score at the end of the game.
 
 ## Customization
 You can customize the trivia questions by editing the questions array in the JavaScript file.
