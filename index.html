@@ -29,14 +29,14 @@
           required
           pattern=".{4,12}"
         /><br />
-        <label>Phone Number:</label>
+        <label>Code:</label>
         <input
-          type="tel"
-          id="phone"
-          title="Please enter a 10-digit phone number with no special characters."
-          placeholder="Phone Number"
+          type="number"
+          id="code"
+          title="Please enter a 4-digit game code number"
+          placeholder="Code"
           required
-          pattern="^\d{10}$"
+          pattern="^\d{4}$"
         /><br />
         <button type="submit">Start the Quiz</button>
       </form>
