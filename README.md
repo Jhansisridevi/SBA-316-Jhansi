@@ -1,13 +1,19 @@
 # Trivia Game
 ## Description
 The Trivia Game is a single page web application that allows users to test their knowledge with a series of multiple-choice questions. Users can select answers, and the game provides feedback on whether their answers are correct or not. The game keeps track of the user's score and provides a final score at the end.
-It’s about finding words which make sense in a sentence from a selection of jumbled letters.
+It’s about finding words(Anagrams) which make sense in a sentence from a selection of jumbled letters.
 Anagrams are words which have had their letters scrambled and you have to find the original word.
 Here are some examples:
 
 OWLS is an anagram of SLOW
 RACE is an anagram of CARE
 
+Example:
+The sentence below has a word in which the letters are jumbled up. Rearrange the letters in capitals and write the correct version below it.
+
+The girl sat on a ARCIH.
+
+Answer: the girl sat on a CHAIR.
 ## Features
 Multiple-choice questions on various topics.
 Score tracking.
