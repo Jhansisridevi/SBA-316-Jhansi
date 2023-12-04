@@ -30,6 +30,7 @@ Answer: the girl sat on a CHAIR.
 * Answer the multiple-choice questions.
 * Receive immediate feedback on your answers.
 * See your final score at the end of the game.
+* https://gold-trixie-76.tiiny.site/ - link to the working model
 
 ## Customization
 You can customize the trivia questions by editing the questions array in the JavaScript file.
